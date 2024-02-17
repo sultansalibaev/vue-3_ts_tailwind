@@ -8,11 +8,15 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "autoprefixer": "^10",
     "core-js": "^3.8.3",
+    "postcss": "^8",
+    "tailwindcss": "^3",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "@vue/cli-plugin-babel": "~5.0.0",
@@ -29,7 +33,8 @@
     "eslint-plugin-vue": "^8.0.3",
     "sass": "^1.32.7",
     "sass-loader": "^12.0.0",
-    "typescript": "~4.5.5"
+    "typescript": "~4.5.5",
+    "vue-cli-plugin-tailwind": "~3.0.0"
   },
   "eslintConfig": {
     "root": true,
@@ -44,7 +49,28 @@
     "parserOptions": {
       "ecmaVersion": 2020
     },
-    "rules": {}
+    "rules": {
+      "@typescript-eslint/no-var-requires": "off",
+      "@typescript-eslint/ban-ts-comment": "off",
+      "padded-blocks": "off",
+      "eol-last": "off",
+      "space-before-function-paren": "off",
+      "eqeqeq": "off",
+      "semi": "off",
+      "comma-dangle": "off",
+      "quotes": "off",
+      "vue/script-indent": [
+        "off",
+        4,
+        {
+          "baseIndent": 1
+        }
+      ],
+      "indent": [
+        "off",
+        4
+      ]
+    }
   },
   "browserslist": [
     "> 1%",

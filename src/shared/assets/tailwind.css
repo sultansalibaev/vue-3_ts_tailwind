@@ -1,0 +1,214 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@layer base {
+    ul,
+    ol {
+        list-style: revert;
+    }
+}
+
+.aside-scrollbar {
+    @apply
+        [&::-webkit-scrollbar]:w-[8px]
+        [&::-webkit-scrollbar-thumb]:bg-neutral-300
+        [&::-webkit-scrollbar-thumb]:rounded-xl
+        overflow-y-scroll;
+}
+@media (min-width: 501px) {
+    .main-scrollbar {
+        @apply
+            [&::-webkit-scrollbar]:w-[8px]
+            [&::-webkit-scrollbar-thumb]:bg-neutral-300
+            [&::-webkit-scrollbar-thumb]:rounded-xl
+            overflow-y-scroll;
+    }
+}
+@media (max-width: 500px) {
+    .main-scrollbar {
+        @apply
+            [&::-webkit-scrollbar]:w-0
+            [&::-webkit-scrollbar-thumb]:bg-neutral-300
+            [&::-webkit-scrollbar-thumb]:rounded-xl
+            overflow-y-scroll;
+    }
+}
+
+/* .hidden-scrollbar {
+    @apply [&::-webkit-scrollbar]:w-[8px] [&::-webkit-scrollbar-thumb]:bg-neutral-300 [&::-webkit-scrollbar-thumb]:rounded-xl overflow-y-scroll;
+} */
+
+.hidden-sidebar {
+    @apply
+        mobile-screen:max-w-0
+        mobile-screen:min-w-0
+        mobile-screen:px-0
+        mobile-screen:border-r-0;
+}
+.show-sidebar {
+    @apply
+        mobile-screen:max-w-0
+        mobile-screen:min-w-0
+        mobile-screen:px-0
+        mobile-screen:border-r-0;
+}
+
+.shadow-footer {
+    @apply fill-gray-100;
+    filter: drop-shadow(0px 0px 20px rgba(200, 227, 236, 0.50));
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Ubuntu;
+    font-weight: 900;
+}
+
+h1 {
+    font-size: 40px;
+    line-height: 44px;
+}
+h2 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+}
+h3 {}
+h4 {
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 700;
+}
+h5 {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 500;
+}
+h6 {}
+
+small {
+    font-size: 14px;
+    line-height: 16px;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+}
+p {
+    line-height: 24px;
+}
+
+@media (max-width: 1400px) {
+    .media-auth {
+        /* max-width: 326px; */
+        min-width: 326px;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}
+@media (max-width: 850px) {
+    .media-auth {
+        max-width: unset;
+    }
+    div:has(.media-auth) + * {
+        display: none;
+    }
+}
+@media (max-width: 375px) {
+    .media-auth {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+.dropdown-header {
+    font-size: 10px;
+    cursor: pointer;
+    /* padding: 10px 16px 0 16px; */
+    padding-bottom: 16px;
+    /* background-color: #f3f3f3; */
+    
+    
+    color: #413663;
+    font-family: Ubuntu;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+}
+
+
+/* Scrollbar */
+
+.scrollbar::-webkit-scrollbar {
+    width: 7px;
+    margin-left: 2px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+    margin-left: 2px;
+    background-color: transparent;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    /*background-color: #eaeaea;*/
+    background-color: rgb(170, 227, 255);
+    border-radius: 5px;
+}
+
+
+.gray-scrollbar::-webkit-scrollbar {
+    height: 1rem;
+    width: 5px;
+    cursor: pointer;
+}
+
+.gray-scrollbar::-webkit-scrollbar-thumb:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgba(236, 236, 241, var(--tw-bg-opacity));
+}
+
+.gray-scrollbar::-webkit-scrollbar-thumb {
+    --tw-border-opacity: 1;
+    background-color: rgba(217, 217, 227, .8);
+    border-color: rgba(255, 255, 255, var(--tw-border-opacity));
+    border-radius: 9999px;
+    border-width: 1px;
+}
+
+.gray-scrollbar::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 9999px;
+}
+
+
+
+
+.appearance-none::-webkit-outer-spin-button,
+.appearance-none::-webkit-inner-spin-button {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+}
+input.appearance-none[type=number] {
+    -moz-appearance: textfield;
+}
+
+
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
