@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './app/router'
 import directives from './app/directives'
 import UIComponents from './shared/ui'
-import './shared/assets/tailwind.css'
+import './shared/assets/tailwind.scss'
 
 const app = createApp(App)
 

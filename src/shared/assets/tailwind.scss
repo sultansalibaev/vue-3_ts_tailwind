@@ -1,0 +1,537 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@layer base {
+    ul,
+    ol {
+        list-style: revert;
+    }
+}
+
+// .aside-scrollbar {
+//     @apply
+//         [&::-webkit-scrollbar]:w-[8px]
+//         [&::-webkit-scrollbar-thumb]:bg-neutral-300
+//         [&::-webkit-scrollbar-thumb]:rounded-xl
+//         overflow-y-scroll;
+// }
+// @media (min-width: 501px) {
+//     .main-scrollbar {
+//         @apply
+//             [&::-webkit-scrollbar]:w-[8px]
+//             [&::-webkit-scrollbar-thumb]:bg-neutral-300
+//             [&::-webkit-scrollbar-thumb]:rounded-xl
+//             overflow-y-scroll;
+//     }
+// }
+// @media (max-width: 500px) {
+//     .main-scrollbar {
+//         @apply
+//             [&::-webkit-scrollbar]:w-0
+//             [&::-webkit-scrollbar-thumb]:bg-neutral-300
+//             [&::-webkit-scrollbar-thumb]:rounded-xl
+//             overflow-y-scroll;
+//     }
+// }
+
+/* .hidden-scrollbar {
+    @apply [&::-webkit-scrollbar]:w-[8px] [&::-webkit-scrollbar-thumb]:bg-neutral-300 [&::-webkit-scrollbar-thumb]:rounded-xl overflow-y-scroll;
+} */
+
+// .hidden-sidebar {
+//     @apply
+//         mobile-screen:max-w-0
+//         mobile-screen:min-w-0
+//         mobile-screen:px-0
+//         mobile-screen:border-r-0;
+// }
+// .show-sidebar {
+//     @apply
+//         mobile-screen:max-w-0
+//         mobile-screen:min-w-0
+//         mobile-screen:px-0
+//         mobile-screen:border-r-0;
+// }
+
+// .shadow-footer {
+//     @apply fill-gray-100;
+//     filter: drop-shadow(0px 0px 20px rgba(200, 227, 236, 0.50));
+// }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    // font-family: Ubuntu;
+    // font-weight: 900;
+}
+
+h1 {
+    font-size: 40px;
+    // line-height: 44px;
+}
+h2 {
+    font-size: 32px;
+    font-weight: 700;
+    // line-height: 40px;
+}
+h3 {}
+h4 {
+    font-size: 24px;
+    // line-height: 28px;
+    font-weight: 700;
+}
+h5 {
+    font-size: 20px;
+    // line-height: 28px;
+    font-weight: 500;
+}
+h6 {}
+
+small {
+    font-size: 14px;
+    line-height: 16px;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    // line-height: 20px;
+}
+p {
+    // line-height: 24px;
+    line-height: 20px;
+}
+
+@media (max-width: 1400px) {
+    .media-auth {
+        /* max-width: 326px; */
+        min-width: 326px;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}
+@media (max-width: 850px) {
+    .media-auth {
+        max-width: unset;
+    }
+    div:has(.media-auth) + * {
+        display: none;
+    }
+}
+@media (max-width: 375px) {
+    .media-auth {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+// .dropdown-header {
+//     font-size: 10px;
+//     cursor: pointer;
+//     /* padding: 10px 16px 0 16px; */
+//     padding-bottom: 16px;
+//     /* background-color: #f3f3f3; */
+    
+    
+//     color: #413663;
+//     font-family: Ubuntu;
+//     font-size: 20px;
+//     font-style: normal;
+//     font-weight: 500;
+//     line-height: 28px;
+// }
+
+
+/* Scrollbar */
+
+.scrollable {
+    overflow-y: scroll;
+}
+
+.scrollbar::-webkit-scrollbar {
+    width: 7px;
+    margin-left: 2px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+    margin-left: 2px;
+    background-color: transparent;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    /*background-color: #eaeaea;*/
+    background-color: rgb(170, 227, 255);
+    border-radius: 5px;
+}
+
+
+.gray-scrollbar::-webkit-scrollbar {
+    height: 1rem;
+    width: 5px;
+    cursor: pointer;
+}
+
+.gray-scrollbar::-webkit-scrollbar-thumb:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgba(236, 236, 241, var(--tw-bg-opacity));
+}
+
+.gray-scrollbar::-webkit-scrollbar-thumb {
+    --tw-border-opacity: 1;
+    background-color: rgba(217, 217, 227, .8);
+    border-color: rgba(255, 255, 255, var(--tw-border-opacity));
+    border-radius: 9999px;
+    border-width: 1px;
+}
+
+.gray-scrollbar::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 9999px;
+}
+::-webkit-scrollbar {
+    height: 1rem;
+    width: 5px;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgba(236, 236, 241, var(--tw-bg-opacity));
+}
+
+::-webkit-scrollbar-thumb {
+    --tw-border-opacity: 1;
+    background-color: rgba(217, 217, 227, .8);
+    border-color: rgba(255, 255, 255, var(--tw-border-opacity));
+    border-radius: 9999px;
+    border-width: 1px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 9999px;
+}
+
+
+
+
+.appearance-none::-webkit-outer-spin-button,
+.appearance-none::-webkit-inner-spin-button {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+}
+input.appearance-none[type=number] {
+    -moz-appearance: textfield;
+}
+
+
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+
+
+
+
+// Sidebar
+
+
+/* @import url('https://fonts.cdnfonts.com/css/montserrat'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
+/* Google Font Import - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+h1 {
+    font-size: 55px;
+}
+h2 {
+    font-size: 44px;
+}
+h3 {
+    font-size: 35px;
+}
+h4 {
+    font-size: 28px;
+}
+h5 {
+    font-size: 23px;
+}
+h6 {
+    font-size: 18px;
+}
+
+img {
+    user-select: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: 500;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    // font-family: Montserrat, Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-family: Poppins, sans-serif;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+body input {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif !important;
+}
+
+:root {
+    --text-color: #333;
+    --body-color: #E4E9F7;
+    --sidebar-color: #FFF;
+    --sidebar-text-color: var(--text-color);
+    --primary: #695CFE;
+    --switcher-color: #DDD;
+    --text-white: #fff;
+
+
+    --block-color: #fff;
+    --skeleton-bg-gradient-color: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+    --sidebar-bg: url(./img/sidebar-bg.jpg) 0 0/250px auto repeat-y;
+    --sidebar-opacity: .7;
+
+    --tran-04: all 0.23s ease;
+    --tranision-theme: all .7s ease;
+}
+
+// html.dark {
+//     --text-color: #ccc;
+//     --body-color: #18191a;
+//     --sidebar-color: #242526;
+//     --sidebar-text-color: var(--text-color);
+//     --primary: #3a3b3c;
+//     --switcher-color: #fff;
+
+    
+//     --block-color: #1c1d1f;
+//     --skeletom-color: #242527;
+//     --skeleton-bg-gradient-color: linear-gradient(110deg, #242527 8%, #272829 18%, #242527 33%);
+//     --sidebar-bg: url(./img/sidebar-bg.jpg) 0 0/300px auto repeat-y;
+//     --sidebar-opacity: .2;
+// }
+html.dark {
+    --text-color: #e1e1e1;
+    --body-color: #121319;
+    --sidebar-color: #1A1C24;
+    --sidebar-text-color: #8F96A9;
+    --primary: #004DE5;
+    --switcher-color: #a9a9a9;
+
+
+    --block-color: #191A21;
+    --skeletom-color: #1F2129;
+    --skeleton-bg-gradient-color: linear-gradient(110deg, #1F2129 8%, #23252e 18%, #1F2129 33%);
+    --sidebar-bg: url(./img/sidebar-bg.jpg) 0 0/300px auto repeat-y;
+    --sidebar-opacity: .2;
+}
+
+html {
+    background: var(--body-color);
+    color: var(--text-color);
+    transition: var(--tranision-theme);
+}
+// .toggle-theme .switch,
+// .block-bg-color,
+// .skeletom,
+// .theme,
+// aside .search-box input,
+// aside .search-box,
+// aside .nav-items,
+aside {
+    transition: var(--tranision-theme) !important;
+}
+
+aside .toggle i {
+    transition: var(--tranision-theme);
+}
+
+aside .toggle {
+    transition: var(--tranision-theme), border-radius .2s, width .2s, opacity .2s !important;
+}
+
+
+
+/* Sidebar Navigation */
+
+.hidden-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+aside .nav-item {
+    @apply 
+        flex items-center
+        select-none pl-[10px] rounded-md overflow-hidden cursor-pointer min-h-[35px];
+    transition: var(--tran-04);
+
+}
+aside .text,
+aside .icon {
+    transition: var(--tran-04);
+}
+
+
+aside .nav-item:not(.ignore-hover):hover {
+    background-color: var(--primary);
+}
+
+aside .nav-item:not(.ignore-hover):hover * {
+    color: var(--text-white);
+}
+
+
+
+
+aside.closed-menu .theme {
+    min-height: 25px;
+}
+aside .theme {
+    border-radius: 6px;
+    background-color: var(--body-color);
+    position: relative;
+}
+aside .theme:hover {
+    background-color: var(--body-color);
+}
+aside .theme:hover * {
+    color: var(--text-color);
+}
+
+ .theme .sun-moon {
+    height: 17px;
+    width: 60px;
+}
+
+.theme .sun-moon i {
+    position: absolute;
+}
+
+.theme .sun-moon i.sun {
+    opacity: 0;
+}
+
+html.dark .theme .sun-moon i.sun {
+    opacity: 1;
+}
+
+html.dark .theme .sun-moon i.moon {
+    opacity: 0;
+}
+aside.closed-menu .theme > *:not(.toggle-theme) {
+    opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+aside:not(.closed-menu) .nav-footer .toggle-theme {
+    margin-right: .75em;
+}
+/* nav.closed-menu .nav-footer {
+    min-width: 46px;
+    margin-left: -3px;
+} */
+
+ .nav-footer .toggle-theme {
+    font-size: 13px;
+    position: absolute;
+    right: 0;
+    height: 100%;
+    min-width: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.375em;
+    cursor: pointer;
+}
+
+.toggle-theme .switch {
+    position: relative;
+    height: 1.125em;
+    width: 2.25em;
+    border-radius: 1.5625em;
+    background-color: var(--text-color);
+}
+
+.switch::before {
+    content: '';
+    position: absolute;
+    height: 0.88em;
+    width: 0.88em;
+    border-radius: 50%;
+    top: 50%;
+    left: 0.18em;
+    transform: translateY(-50%);
+    background-color: var(--sidebar-color);
+    transition: var(--tran-04);
+}
+
+html.dark .switch::before {
+    left: 1.2em;
+}
+aside .bg-image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+
+    display: none;
+    transition: var(--tranision-theme);
+}
+aside .blured-img {
+    background: url(https://img.freepik.com/premium-photo/a-black-background-with-a-pile-of-rocks-and-the-words-coal-on-it_900321-20773.jpg?w=826) 0 0/250px auto repeat-y;
+    background: var(--sidebar-bg);
+    filter: blur(16px);
+    width: 100%;
+    height: 100%;
+    opacity: var(--sidebar-opacity);
+}
+aside.closed-menu .blured-img {
+    filter: blur(5px);
+}
+aside .bg-image * {
+    transition: var(--tranision-theme);
+}
+html.dark aside .bg-image {
+    display: block;
+}
+
+aside > *:not(.bg-image) {
+    z-index: 1;
+}
+
+input::placeholder {
+    color: #757575;
+}
