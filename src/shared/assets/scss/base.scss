@@ -1,0 +1,92 @@
+
+
+.scrollable {
+    overflow-y: scroll;
+    &-y {
+        overflow-x: scroll;
+    }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(217, 217, 227, .8);
+    border-radius: 5px;
+}
+::-webkit-scrollbar {
+    height: 1rem;
+    width: 5px;
+    cursor: pointer;
+}
+
+
+
+
+.appearance-none::-webkit-outer-spin-button,
+.appearance-none::-webkit-inner-spin-button {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+}
+input.appearance-none[type=number] {
+    -moz-appearance: textfield;
+}
+
+input::placeholder {
+    color: #757575;
+}
+
+
+
+body {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    background: var(--body-color);
+    color: var(--text-color);
+    transition: var(--tranision-theme);
+}
+
+small {
+    font-size: 14px;
+    line-height: 16px;
+}
+
+p {
+    line-height: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+    font-family: Poppins, sans-serif;
+}
+
+h1 {
+    font-size: 55px;
+}
+h2 {
+    font-size: 44px;
+    font-weight: 700;
+}
+h3 {
+    font-size: 35px;
+}
+h4 {
+    font-size: 28px;
+    font-weight: 700;
+}
+h5 {
+    font-size: 23px;
+    font-weight: 500;
+}
+h6 {
+    font-size: 18px;
+}
+
+img {
+    user-select: none;
+}

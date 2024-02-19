@@ -1,0 +1,49 @@
+:root {
+    --text-color: #333;
+    --body-color: #E4E9F7;
+    --sidebar-color: #FFF;
+    --sidebar-text-color: var(--text-color);
+    --primary: #695CFE;
+    --switcher-color: #DDD;
+    --text-white: #fff;
+
+
+    --block-color: #fff;
+    --skeleton-bg-gradient-color: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+    --sidebar-bg: url(./img/sidebar-bg.jpg) 0 0/250px auto repeat-y;
+    --sidebar-opacity: .7;
+
+    --tran-04: all 0.23s ease;
+    --tranision-theme: all .7s ease;
+}
+
+html:not(.dark) {
+    --text-color: #ccc;
+    --body-color: #18191a;
+    --sidebar-color: #242526;
+    --sidebar-text-color: var(--text-color);
+    --primary: #3a3b3c;
+    --switcher-color: #fff;
+
+    
+    --block-color: #1c1d1f;
+    --skeletom-color: #242527;
+    --skeleton-bg-gradient-color: linear-gradient(110deg, #242527 8%, #272829 18%, #242527 33%);
+    --sidebar-bg: url(./img/sidebar-bg.jpg) 0 0/300px auto repeat-y;
+    --sidebar-opacity: .2;
+}
+html.dark {
+    --text-color: #e1e1e1;
+    --body-color: #121319;
+    --sidebar-color: #1A1C24;
+    --sidebar-text-color: #8F96A9;
+    --primary: #004DE5;
+    --switcher-color: #a9a9a9;
+
+
+    --block-color: #191A21;
+    --skeletom-color: #1F2129;
+    --skeleton-bg-gradient-color: linear-gradient(110deg, #1F2129 8%, #23252e 18%, #1F2129 33%);
+    --sidebar-bg: url(./img/sidebar-bg.jpg) 0 0/300px auto repeat-y;
+    --sidebar-opacity: .2;
+}

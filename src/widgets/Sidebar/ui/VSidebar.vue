@@ -5,7 +5,7 @@
             'closed-menu': closed
         }"
     >
-        <div class="bg-image">
+        <div class="bg-image" v-if="dark_theme">
             <div class="blured-img"></div>
         </div>
         <div class="toggle" @click="toggleAside">
@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <nav class="scrollable hidden-scrollbar flex flex-col gap-1.5 h-full">
+        <nav class="scrollable scrollbar-hide flex flex-col gap-1.5 h-full">
             <a href="#" class="nav-item search-box ignore-hover" @click="showAside">
                 <i class="bx bx-search text-[17px] mr-2.5"></i>
                 <input type="text" class="!font-normal" placeholder="Search..." ref="search-box">
@@ -108,11 +108,86 @@ export default {
 }
 
 aside {
+    transition: var(--tranision-theme) !important;
     .toggle {
         @apply 
             absolute top-[25px] left-[calc(100%_-_12px)]
             text-[22px] w-[25px] h-[25px] rounded-full cursor-pointer
             flex items-center justify-center bg-primary text-white;
+
+        transition: var(--tranision-theme), border-radius .2s, width .2s, opacity .2s !important;
+        i {
+            transition: var(--tranision-theme);
+        }
+    }
+
+    .nav-item {
+        @apply 
+            flex items-center
+            select-none pl-[10px] rounded-md overflow-hidden cursor-pointer min-h-[35px];
+
+        transition: var(--tran-04);
+
+        &:not(.ignore-hover):hover {
+            background-color: var(--primary);
+            * {
+                color: var(--text-white);
+            }
+        }
+
+    }
+    .text,
+    .icon {
+        transition: var(--tran-04);
+    }
+
+    .theme {
+        border-radius: 6px;
+        background-color: var(--body-color);
+        position: relative;
+        &:hover {
+            background-color: var(--body-color);
+            * {
+                color: var(--text-color);
+            }
+        }
+
+        .sun-moon {
+            height: 17px;
+            width: 60px;
+            i {
+                position: absolute;
+                &.sun {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    .bg-image {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+
+        transition: var(--tranision-theme);
+        * {
+            transition: var(--tranision-theme);
+        }
+    }
+    .blured-img {
+        background: url(https://img.freepik.com/premium-photo/a-black-background-with-a-pile-of-rocks-and-the-words-coal-on-it_900321-20773.jpg?w=826) 0 0/250px auto repeat-y;
+        background: var(--sidebar-bg);
+        filter: blur(16px);
+        width: 100%;
+        height: 100%;
+        opacity: var(--sidebar-opacity);
+    }
+
+    > *:not(.bg-image) {
+        z-index: 1;
     }
 
     &.closed-menu {
@@ -127,11 +202,63 @@ aside {
                 opacity: .4;
             }
         }
+        .theme {
+            min-height: 25px;
+            & > *:not(.toggle-theme) {
+                opacity: 0;
+            }
+        }
+        .blured-img {
+            filter: blur(5px);
+        }
+    }
+
+    &:not(.closed-menu) .nav-footer .toggle-theme {
+        margin-right: .75em;
     }
 }
 
 .nav-footer {
     border-top: 1px solid var(--switcher-color);
+}
+.toggle-theme {
+    font-size: 13px;
+    position: absolute;
+    right: 0;
+    height: 100%;
+    min-width: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.375em;
+    cursor: pointer;
+}
+
+// ===============================================================================================
+
+.toggle-theme .switch {
+    position: relative;
+    height: 1.125em;
+    width: 2.25em;
+    border-radius: 1.5625em;
+    background-color: var(--text-color);
+}
+
+.switch::before {
+    content: '';
+    position: absolute;
+    height: 0.88em;
+    width: 0.88em;
+    border-radius: 50%;
+    top: 50%;
+    left: 0.18em;
+    transform: translateY(-50%);
+    background-color: var(--sidebar-color);
+    transition: var(--tran-04);
+}
+
+html.dark .switch::before {
+    left: 1.2em;
 }
 
 </style>
