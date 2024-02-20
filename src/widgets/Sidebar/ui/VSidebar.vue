@@ -23,18 +23,20 @@
         </div>
 
         <nav class="scrollable scrollbar-hide flex flex-col gap-1.5 h-full">
-            <a href="#" class="nav-item search-box ignore-hover" @click="showAside">
-                <i class="bx bx-search text-[17px] mr-2.5"></i>
-                <input type="text" class="!font-normal" placeholder="Search..." ref="search-box">
-            </a>
+            <div class="nav-item search-box !bg-body-color" @click="showAside">
+                <i class="bx bx-search text-[17px] mr-2.5 bg-body-color !text-sidebar-text-color"></i>
+                <input type="text" class="!font-normal bg-body-color !text-color" placeholder="Search..." ref="search-box">
+            </div>
 
-            <a href="#" class="nav-item" v-for="(item, index) in nav" :key="index">
-                <i class='text-[17px] mr-2.5' :class="item.icon"></i>
-                <span class="truncate">{{ item.name }}</span>
-            </a>
+            <sidebar-item
+                v-for="(item, index) in nav"
+                :key="index"
+                :item="item"
+                class="nav-item"
+            />
         </nav>
         <div class="border-t border-switcher-color mt-auto">
-            <a href="#" class="nav-item my-2.5">
+            <a href="/" class="nav-item my-2.5">
                 <i class='text-[17px] mr-2.5 bx bx-log-out'></i>
                 <span class="truncate">Logout</span>
             </a>
@@ -64,17 +66,21 @@
 </template>
 
 <script>
+import SidebarItem from "./SidebarItem.vue"
 
 export default {
     name: 'v-sidebar',
+    components: {
+        SidebarItem,
+    },
     data: () => ({
         closed: false,
         dark_theme: localStorage.getItem('theme-mode') == 'dark',
         nav: [
-            { icon: 'bx bx-home-alt', name: 'Main', },
-            { icon: 'bx bx-info-circle', name: 'About', },
-            { icon: 'bx bx-user', name: 'Profile', },
-            { icon: 'bx bx-news', name: 'Articles', },
+            { icon: 'bx bx-home-alt', name: 'Main', to: '/main' },
+            { icon: 'bx bx-info-circle', name: 'About', to: '/about' },
+            { icon: 'bx bx-user', name: 'Profile', to: '/profile' },
+            { icon: 'bx bx-news', name: 'Articles', to: '/articles' },
             // { icon: 'bx bx-bar-chart-alt', name: 'Dashboard', },
             // { icon: 'bx bx-bell', name: 'Notifications', },
             // { icon: 'bx bx-heart', name: 'Likes', },
@@ -94,7 +100,7 @@ export default {
             document.documentElement.classList.toggle('dark')
         },
     },
-    mounted() {
+    created() {
         document.documentElement.className = localStorage.getItem('theme-mode') ?? ''
     },
     watch: {
@@ -109,9 +115,9 @@ export default {
 <style lang="scss">
 
 .search-box {
-    @apply mt-12 mb-2.5 pr-2.5 bg-body-color;
+    @apply mt-12 mb-2.5 pr-2.5;
     input {
-        @apply w-full h-full outline-none border-none bg-body-color text-color text-base;
+        @apply w-full h-full outline-none border-none text-base;
         transition: var(--tran-04);
     }
 }
@@ -132,66 +138,33 @@ aside {
 
     .nav-item {
         @apply 
-            flex items-center
-            select-none pl-[10px] rounded-md overflow-hidden cursor-pointer min-h-[35px];
+            flex items-center pl-[10px] min-h-[35px]
+            select-none rounded-md overflow-hidden cursor-pointer;
 
         transition: var(--tran-04);
 
-        &:not(.ignore-hover):hover {
+        &:hover {
             background-color: var(--primary);
-            * {
-                color: var(--text-white);
-            }
+            color: var(--text-white);
         }
 
-    }
-    .text,
-    .icon {
-        transition: var(--tran-04);
     }
 
     .theme {
-        border-radius: 6px;
-        background-color: var(--body-color);
-        position: relative;
-        &:hover {
-            background-color: var(--body-color);
-            * {
-                color: var(--text-color);
-            }
-        }
-
-        .sun-moon {
-            height: 17px;
-            width: 60px;
-            i {
-                position: absolute;
-                &.sun {
-                    opacity: 0;
-                }
-            }
-        }
+        @apply relative rounded-md bg-body-color;
     }
 
     .bg-image {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        overflow: hidden;
+        @apply absolute top-0 bottom-0 left-0 right-0 overflow-hidden;
 
-        transition: var(--tranision-theme);
-        * {
+        .blured-img {
             transition: var(--tranision-theme);
         }
     }
     .blured-img {
-        background: url(https://img.freepik.com/premium-photo/a-black-background-with-a-pile-of-rocks-and-the-words-coal-on-it_900321-20773.jpg?w=826) 0 0/250px auto repeat-y;
+        @apply w-full h-full;
         background: var(--sidebar-bg);
         filter: blur(16px);
-        width: 100%;
-        height: 100%;
         opacity: var(--sidebar-opacity);
     }
 
@@ -202,10 +175,8 @@ aside {
     &.closed-menu {
         max-width: 65px;
         .toggle {
-            justify-content: end;
-            width: 35px;
+            @apply justify-end left-full w-9;
             border-radius: 0 15px 15px 0;
-            left: 100%;
             &:not(:hover) {
                 width: 25px;
                 opacity: .4;
