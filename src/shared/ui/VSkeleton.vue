@@ -13,7 +13,7 @@ export default {
 <style lang="scss">
 
 .skeleton {
-    @apply rounded-md;
+    @apply rounded-md hover:cursor-wait;
 
     background: var(--skeleton-bg-gradient-color);
     background-size: 200% 100%;

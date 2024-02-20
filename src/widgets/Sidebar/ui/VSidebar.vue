@@ -30,24 +30,33 @@
 
             <a href="#" class="nav-item" v-for="(item, index) in nav" :key="index">
                 <i class='text-[17px] mr-2.5' :class="item.icon"></i>
-                <span class="nav-text truncate">{{ item.name }}</span>
+                <span class="truncate">{{ item.name }}</span>
             </a>
         </nav>
-        <div class="nav-footer mt-auto">
+        <div class="border-t border-switcher-color mt-auto">
             <a href="#" class="nav-item my-2.5">
                 <i class='text-[17px] mr-2.5 bx bx-log-out'></i>
-                <span class="nav-text truncate">Logout</span>
+                <span class="truncate">Logout</span>
             </a>
-            <div class="nav-item ignore-hover theme truncate" @click="toggleDarkTheme">
-                <div class="sun-moon">
-                    <i class='text-[17px] mr-2.5 bx bx-moon moon'></i>
-                    <i class='text-[17px] mr-2.5 bx bx-sun sun'></i>
-                </div>
-                <span class="theme-text">Default</span>
-
-                <div class="toggle-theme">
-                    <span class="switch"></span>
-                </div>
+            <div
+                class="!bg-body-color rounded-md flex items-center truncate"
+                :class="{
+                    'h-9 px-2.5 justify-between': !closed,
+                    'h-6 text-sm justify-center cursor-pointer': closed,
+                }"
+                @click="closed ? toggleDarkTheme() : false"
+            >
+                <template v-if="!closed">
+                    <i class='text-[17px] bx bx-moon'></i>
+                    <span>Default</span>
+                </template>
+                <v-switch
+                    :bool="dark_theme"
+                    :class="{
+                        'text-[11px]': closed
+                    }"
+                    @click.stop="toggleDarkTheme"
+                />
             </div>
         </div>
 
@@ -213,52 +222,6 @@ aside {
         }
     }
 
-    &:not(.closed-menu) .nav-footer .toggle-theme {
-        margin-right: .75em;
-    }
-}
-
-.nav-footer {
-    border-top: 1px solid var(--switcher-color);
-}
-.toggle-theme {
-    font-size: 13px;
-    position: absolute;
-    right: 0;
-    height: 100%;
-    min-width: 3em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0.375em;
-    cursor: pointer;
-}
-
-// ===============================================================================================
-
-.toggle-theme .switch {
-    position: relative;
-    height: 1.125em;
-    width: 2.25em;
-    border-radius: 1.5625em;
-    background-color: var(--text-color);
-}
-
-.switch::before {
-    content: '';
-    position: absolute;
-    height: 0.88em;
-    width: 0.88em;
-    border-radius: 50%;
-    top: 50%;
-    left: 0.18em;
-    transform: translateY(-50%);
-    background-color: var(--sidebar-color);
-    transition: var(--tran-04);
-}
-
-html.dark .switch::before {
-    left: 1.2em;
 }
 
 </style>

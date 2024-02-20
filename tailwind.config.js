@@ -14,6 +14,7 @@ module.exports = {
         'sidebar-color': 'var(--sidebar-color)',
         'block-color': 'var(--block-color)',
         'sidebar-text-color': 'var(--sidebar-text-color)',
+        'switcher-color': 'var(--switcher-color)',
       },
     },
   },
