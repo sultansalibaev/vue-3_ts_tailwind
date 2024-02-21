@@ -118,7 +118,7 @@ export default {
     @apply mt-12 mb-2.5 pr-2.5;
     input {
         @apply w-full h-full outline-none border-none text-base;
-        transition: var(--tran-04);
+        transition: var(--tranision-hover);
     }
 }
 
@@ -141,7 +141,7 @@ aside {
             flex items-center pl-[10px] min-h-[35px]
             select-none rounded-md overflow-hidden cursor-pointer;
 
-        transition: var(--tran-04);
+        transition: var(--tranision-hover);
 
         &:hover {
             background-color: var(--primary);

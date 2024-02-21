@@ -36,7 +36,7 @@ defineProps({
         top: 50%;
         left: 0.18em;
         transform: translateY(-50%);
-        transition: var(--tran-04);
+        transition: var(--tranision-hover);
     }
     &.active::before {
         // left: 1.2em;
