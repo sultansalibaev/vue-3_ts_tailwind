@@ -1,6 +1,6 @@
 <template>
     <aside
-        class="flex flex-col bg-sidebar-color py-2.5 px-3.5 w-full h-full max-w-[250px] relative text-sidebar-text-color"
+        class="flex flex-col bg-sidebar-color py-2.5 px-3.5 pb-[76px] w-full h-full max-w-[250px] relative text-sidebar-text-color"
         :class="{
             'closed-menu': closed
         }"
@@ -23,10 +23,7 @@
         </div>
 
         <nav class="scrollable scrollbar-hide flex flex-col gap-1.5 h-full">
-            <div class="nav-item search-box !bg-body-color" @click="showAside">
-                <i class="bx bx-search text-[17px] mr-2.5 bg-body-color !text-sidebar-text-color"></i>
-                <input type="text" class="!font-normal bg-body-color !text-color" placeholder="Search..." ref="search-box">
-            </div>
+            <v-input class="nav-item" @click="showAside"/>
 
             <sidebar-item
                 v-for="(item, index) in nav"
@@ -36,10 +33,10 @@
             />
         </nav>
         <div class="border-t border-switcher-color mt-auto">
-            <a href="/" class="nav-item my-2.5">
-                <i class='text-[17px] mr-2.5 bx bx-log-out'></i>
-                <span class="truncate">Logout</span>
-            </a>
+            <sidebar-item
+                :item="{ icon: 'bx bx-log-out', name: 'Logout', to: '/logout' }"
+                class="nav-item my-2.5"
+            />
             <div
                 class="!bg-body-color rounded-md flex items-center truncate"
                 :class="{
@@ -59,6 +56,18 @@
                     }"
                     @click.stop="toggleDarkTheme"
                 />
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-16 bg-profile-color py-2.5 px-3.5 flex items-center gap-3">
+            <v-img name="avatar.jpg" class="size-10 cursor-pointer" img-class="rounded-full"/>
+            <div class="flex flex-col">
+                <span class=" text-color">Sultan Salibaev</span>
+                <a href="mail:hello@123d.one" class="hover:underline text-[#828693]">
+                    <small>hello@123d.one</small>
+                </a>
+            </div>
+            <div class="size-5 rounded-full flex items-center justify-center ml-auto cursor-pointer text-dots-color bg-dots-bg border-dots-border border-2">
+                <i class="fa-solid fa-ellipsis taxt-[13px]"></i>
             </div>
         </div>
 
@@ -102,11 +111,6 @@ export default {
     },
     created() {
         document.documentElement.className = localStorage.getItem('theme-mode') ?? ''
-    },
-    watch: {
-        closed(bool) {
-            if (!bool) this.$refs?.['search-box']?.focus?.();
-        }
     },
 }
 

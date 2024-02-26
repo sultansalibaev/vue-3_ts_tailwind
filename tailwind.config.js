@@ -15,6 +15,11 @@ module.exports = {
                 'block-color': 'var(--block-color)',
                 'sidebar-text-color': 'var(--sidebar-text-color)',
                 'switcher-color': 'var(--switcher-color)',
+                'profile-color': 'var(--profile-color)',
+
+                'dots-color': 'var(--dots-color)',
+                'dots-bg': 'var(--dots-bg)',
+                'dots-border': 'var(--dots-border)',
             },
             // transitions: {
             //     hover: 'var(--tranision-hover)',
