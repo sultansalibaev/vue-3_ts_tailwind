@@ -2,6 +2,21 @@
   <router-view/>
 </template>
 
+<script>
+
+import { fetchMyProfile } from "@/entities/Profile";
+
+export default {
+	setup: () => ({
+		fetchMyProfile
+	}),
+	created() {
+		this.fetchMyProfile()
+	}
+}
+
+</script>
+
 <style lang="scss">
 
 #app {

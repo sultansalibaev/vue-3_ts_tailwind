@@ -17,3 +17,10 @@ declare module '*.(png|jpe?g|gif)' {
     const value: string;
     export default value;
 }
+
+declare module 'vue/types/vue' {
+  // Declare interface for extending Vue with $t function
+  interface Vue {
+    $t: (key: string, ...args: any[]) => string;
+  }
+}

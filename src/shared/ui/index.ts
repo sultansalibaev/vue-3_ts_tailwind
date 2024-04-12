@@ -3,6 +3,8 @@ import VImg from "./VImg.vue"
 import VSkeleton from "./VSkeleton.vue"
 import VSwitch from "./VSwitch.vue"
 import { VInput } from "./Input"
+import { VModal } from "./Modal";
+import { VButton } from "./Button";
 
 export default [
     IconSvg,
@@ -10,4 +12,6 @@ export default [
     VSkeleton,
     VSwitch,
     VInput,
+	VModal,
+	VButton,
 ]

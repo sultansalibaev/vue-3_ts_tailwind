@@ -18,12 +18,16 @@
 
             <div class="truncate">
                 <h6 class="">Codinglab</h6>
-                <span>Web developer</span>
+                <span>{{ $t('Web developer') }}</span>
             </div>
         </div>
 
         <nav class="scrollable scrollbar-hide flex flex-col gap-1.5 h-full">
-            <v-input class="nav-item" @click="showAside"/>
+			<v-input class="gap-2.5 mt-12 mb-2.5 text-base" placeholder="Search..." @click="showAside">
+				<template #left-icon>
+					<i class="bx bx-search text-[17px] bg-body-color text-current"></i>
+				</template>
+			</v-input>
 
             <sidebar-item
                 v-for="(item, index) in nav"
@@ -34,8 +38,13 @@
         </nav>
         <div class="border-t border-switcher-color mt-auto">
             <sidebar-item
-                :item="{ icon: 'bx bx-log-out', name: 'Logout', to: '/logout' }"
+                :item="{ icon: 'bx bx-log-out', name: 'Logout', to: '' }"
                 class="nav-item my-2.5"
+            />
+            <sidebar-item
+                :item="{ icon: 'bx bx-log-in', name: 'Login', to: '' }"
+                class="nav-item my-2.5"
+				@click="modal = true"
             />
             <div
                 class="!bg-body-color rounded-md flex items-center truncate"
@@ -58,35 +67,40 @@
                 />
             </div>
         </div>
-        <div class="absolute bottom-0 left-0 right-0 h-16 bg-profile-color py-2.5 px-3.5 flex items-center gap-3">
-            <v-img name="avatar.jpg" class="size-10 cursor-pointer" img-class="rounded-full"/>
-            <div class="flex flex-col">
-                <span class=" text-color">Sultan Salibaev</span>
-                <a href="mail:hello@123d.one" class="hover:underline text-[#828693]">
-                    <small>hello@123d.one</small>
-                </a>
-            </div>
-            <div class="size-5 rounded-full flex items-center justify-center ml-auto cursor-pointer text-dots-color bg-dots-bg border-dots-border border-2">
-                <i class="fa-solid fa-ellipsis taxt-[13px]"></i>
+        <div class="absolute bottom-0 left-0 right-0 h-16 bg-profile-color flex items-center py-2.5 px-3.5">
+            <div class="flex items-center justify-between gap-3 w-full overflow-hidden">
+                <v-img name="avatar.jpg" class="size-10 min-w-10 cursor-pointer" img-class="rounded-full"/>
+                <div class="flex flex-col truncate [&>*]:truncate">
+                    <span class="text-color">Sultan Salibaev</span>
+                    <a href="mail:hello@123d.one" class="hover:underline text-[#828693]">
+                        <small>hello@123d.one</small>
+                    </a>
+                </div>
+                <div class="size-5 rounded-full flex items-center justify-center ml-auto cursor-pointer text-dots-color bg-dots-bg border-dots-border border-2" v-if="!closed">
+                    <i class="fa-solid fa-ellipsis taxt-[13px]"></i>
+                </div>
             </div>
         </div>
-
     </aside>
+	<login-modal @hide-modal="modal = $event" :show="modal" @in-login="onLogin" />
 </template>
 
 <script>
 import SidebarItem from "./SidebarItem.vue"
+import { LoginModal } from "@/features/Authentication";
 
 export default {
     name: 'v-sidebar',
     components: {
         SidebarItem,
+		LoginModal,
     },
     data: () => ({
+		modal: false,
         closed: false,
         dark_theme: localStorage.getItem('theme-mode') == 'dark',
         nav: [
-            { icon: 'bx bx-home-alt', name: 'Main', to: '/main' },
+            { icon: 'bx bx-home-alt', name: 'Main', to: '/' },
             { icon: 'bx bx-info-circle', name: 'About', to: '/about' },
             { icon: 'bx bx-user', name: 'Profile', to: '/profile' },
             { icon: 'bx bx-news', name: 'Articles', to: '/articles' },
@@ -129,7 +143,7 @@ export default {
 aside {
     transition: var(--tranision-theme) !important;
     .toggle {
-        @apply 
+        @apply
             absolute top-[25px] left-[calc(100%_-_12px)]
             text-[22px] w-[25px] h-[25px] rounded-full cursor-pointer
             flex items-center justify-center bg-primary text-white;
@@ -141,7 +155,7 @@ aside {
     }
 
     .nav-item {
-        @apply 
+        @apply
             flex items-center pl-[10px] min-h-[35px]
             select-none rounded-md overflow-hidden cursor-pointer;
 
